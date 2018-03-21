@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页开启</title>
+</head>
+<body>
+<div class="nav" ui-view="nav" resize>
+</div>
+<div class="box">
+    <!--右边主体部分-->
+    <div class="secThree">
+        <header>
+            <div class="headerDiv" style="z-index: 999">
+                <!--主体头部部分-->
+                <div class="rightTop">
+                    <div class="topLeft" ng-click="jumpPage()">
+                        <h2>客户关系管理平台</h2>
+                    </div>
+                    <div class="topRight">
+                        <a href="javascript:void(0)">
+                            <svg role="img" class="news">
+                                <use xlink:href="#news"></use>
+                            </svg>
+                            <span>信息</span>
+                        </a>
+                        <a href="javascript:void(0)" ng-click="exit()">
+                            <svg role="img" class="quit">
+                                <use xlink:href="#quit"></use>
+                            </svg>
+                            <span>退出</span>
+                        </a>
+                        <a href="javascript:void(0)" ng-click="exit()"><span>{{username}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="content" ui-view="content"></div>
+    </div>
+</div>
+<script src="/common/common.js"></script>
+</body>
+</html>

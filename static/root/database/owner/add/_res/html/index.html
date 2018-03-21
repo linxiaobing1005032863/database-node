@@ -1,0 +1,289 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>业主信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>添加</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--添加样式-->
+        <div class="list-center">
+            <div class="list-center-kind">
+                <ul class="list-center-oul">
+                    <li class="required">
+                        <label>客户姓名</label>
+                        <input type="text" ng-model="add.customer_name">
+                    </li>
+                    <li class="required">
+                        <label>客户性别</label>
+                        <select  ng-model="add.customer_sex">
+                            <option value="" disabled></option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>客户年龄</label>
+                        <input type="text" ng-model="add.customer_age">
+                    </li>
+                    <li class="required">
+                        <label>客户状态</label>
+                        <select  ng-model="add.customer_status">
+                            <option value="" disabled></option>
+                            <option value="已完成项目客户">已完成项目客户</option>
+                            <option value="现项目客户">现项目客户</option>
+                            <option value="潜在客户">潜在客户</option>
+                            <option value="失败客户">失败客户</option>
+                            <option value="已流失客户">已流失客户</option>
+                            <!--<option value="普通客户">普通客户</option>-->
+                            <!--<option value="会员客户">会员客户</option>-->
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>客户职位</label>
+                        <input type="text" ng-model="add.customer_position">
+                    </li>
+                    <li class="required">
+                        <label>重要级别</label>
+                        <select  ng-model="add.important_level">
+                            <option value="" disabled></option>
+                            <option value="非常重要">非常重要</option>
+                            <option value="重要">重要</option>
+                            <option value="一般">一般</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>地区</label>
+                        <a href="javascript:void(0)" class="pick-area pick-area6 SVGUROKDQT1517380985000" name="请选择省/请选择市/请选择区" style="width: 340px;">
+                        </a>
+                    </li>
+                    <li class="required">
+                        <label>地址</label>
+                        <input type="text" ng-model="add.address">
+                    </li>
+                    <li class="required">
+                        <label>数据来源</label>
+                        <!--<input type="text" ng-model="add.data_source">-->
+                        <select  ng-model="add.data_source">
+                            <option value="" disabled></option>
+                            <option value="中标单位上传">中标单位上传</option>
+                            <option value="业主上传">业主上传</option>
+                            <option value="业务员上传">业务员上传</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>客户电话</label>
+                        <input type="text" ng-model="add.customer_phone">
+                    </li>
+                    <li class="required">
+                        <label>客户微信</label>
+                        <input type="text" ng-model="add.customer_WeChat">
+                    </li>
+                    <li class="required">
+                        <label>客户性格</label>
+                        <input type="text" ng-model="add.customer_character">
+                    </li>
+                    <li class="required">
+                        <label>客户脾气</label>
+                        <input type="text" ng-model="add.customer_temper">
+                    </li>
+                    <li class="required">
+                        <label>客户兴趣</label>
+                        <input type="text" ng-model="add.customer_interest">
+                    </li>
+                    <li class="required">
+                        <label>共同认识的人</label>
+                        <input type="text" ng-model="add.know_people">
+                    </li>
+                    <li class="required">
+                        <label>身份证明</label>
+                        <select ng-model="add.identity_prove">
+                            <option value="1">有</option>
+                            <option value="0">无</option>
+                        </select>
+                    </li>
+                    <li class="required active" style="width: 100%;display: flex;" ng-show="add.identity_prove == 1">
+                        <label>证明资料</label>
+                        <div class="box-upload-div div-active">
+                            <button class="box-circle-btn btn-active">
+                                <span id="changeText">上传附件</span>
+                                <label class="upload-picOne" for="uploadFile">
+                                    <input type="file" id='uploadFile' style="display: none" onchange='angular.element(this).scope().fileNameChanged("")' >
+                                </label>
+                            </button>
+                            <ul class="upload-ul">
+                                <li ng-repeat="list in files">
+                                    <div class="up-al">
+                                        <img src="{{list.url}}" alt="" ng-if="list.type=='jpg'||list.type=='png'||list.type=='jpeg'" style="width: 50px;height: 35px;">
+                                        <p title="{{list.name}}" ng-if="list.type!='jpg'&&list.type!='png'&&list.type!='jpeg'" style="width: 50px;">{{::list.name}}</p>
+                                        <a href="javascript:void(0)" class="upload-close" ng-click="del($index)"><img src="/images/close2.png"></a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button class="box-circle-btn2" ng-click="updataSel()">确定上传</button>
+                        </div>
+                    </li>
+
+                </ul>
+                <!--后面添加的-->
+                <div class="centerTop" style="margin: 30px 0 0 0;width: 150px">
+                    <ul>
+                        <li class="firstSp"><span></span></li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span>选址（谈楼）信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-center" style="width: 100%">
+                    <div class="list-center-kind">
+                        <ul class="list-center-oul">
+                            <li>
+                                <label>建筑类型</label>
+                                <input type="text" ng-model="add.architecture_type">
+                            </li>
+                            <li>
+                                <label>建筑大小</label>
+                                <input type="text" ng-model="add.space_size">
+                            </li>
+                            <li>
+                                <label>供电情况</label>
+                                <input type="text" ng-model="add.power_supply_situation">
+                            </li>
+                            <li>
+                                <label>供电价格</label>
+                                <input type="text" ng-model="add.power_supply_price">
+                            </li>
+                            <li>
+                                <label>空调排水</label>
+                                <input type="text" ng-model="add.air_conditioning_drainage">
+                            </li>
+                            <li class="required no_active">
+                                <label>接地</label>
+                                <select  ng-model="add.ground">
+                                    <option value="1">有</option>
+                                    <option value="0">无</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>传输路由</label>
+                                <input type="text" ng-model="add.transmission_routing">
+                            </li>
+                            <li>
+                                <label>载重</label>
+                                <input type="text" ng-model="add.bearing">
+                            </li>
+                            <li>
+                                <label>手机网络信号情况</label>
+                                <input type="text" ng-model="add.phone_network_signal">
+                            </li>
+                            <li>
+                                <label>辐射情况</label>
+                                <input type="text" ng-model="add.radiation_condition">
+                            </li>
+                            <li>
+                                <label>站点地址</label>
+                                <input type="text" ng-model="add.site_address">
+                            </li>
+                            <li>
+                                <label>站点纬度</label>
+                                <input type="text" ng-model="add.latitude">
+                            </li>
+                            <li>
+                                <label>站点经度</label>
+                                <input type="text" ng-model="add.longitude">
+                            </li>
+                            <li class="required">
+                                <label>现网状态</label>
+                                <select  ng-model="add.current_network_state">
+                                    <option value="" disabled></option>
+                                    <option value="有现网">有现网</option>
+                                    <option value="无现网">无现网</option>
+                                </select>
+                            </li>
+                            <li class="required no_active">
+                                <label>站点状态</label>
+                                <select  ng-model="add.site_state" >
+                                    <!--<option value="" disabled></option>-->
+                                    <option value="无需改造" ng-show="add.current_network_state=='有现网'">无需改造</option>
+                                    <option value="改造2G&3G&4G" ng-show="add.current_network_state=='有现网'">改造2G&3G&4G</option>
+                                    <option value="改造2G&3G" ng-show="add.current_network_state=='有现网'">改造2G&3G</option>
+                                    <option value="改造2G&4G" ng-show="add.current_network_state=='有现网'">改造2G&4G</option>
+                                    <option value="改造3G&4G" ng-show="add.current_network_state=='有现网'">改造3G&4G</option>
+                                    <option value="无需新建" ng-show="add.current_network_state=='无现网'">无需新建</option>
+                                    <option value="新建2G" ng-show="add.current_network_state=='无现网'">新建2G</option>
+                                    <option value="新建3G" ng-show="add.current_network_state=='无现网'">新建3G</option>
+                                    <option value="新建4G" ng-show="add.current_network_state=='无现网'">新建4G</option>
+                                    <option value="新建2G&3G&4G" ng-show="add.current_network_state=='无现网'">新建2G&3G&4G</option>
+                                    <option value="新建2G&3G" ng-show="add.current_network_state=='无现网'">新建2G&3G</option>
+                                    <option value="新建2G&4G" ng-show="add.current_network_state=='无现网'">新建2G&4G</option>
+                                    <option value="新建3G&4G" ng-show="add.current_network_state=='无现网'">新建3G&4G</option>
+                                </select>
+                            </li>
+                            <li class="required no_active">
+                                <label>归属运营商</label>
+                                <select  ng-model="add.operator">
+                                    <option value="" disabled></option>
+                                    <option value="中国联通">中国联通</option>
+                                    <option value="中国移动">中国移动</option>
+                                    <option value="中国电信">中国电信</option>
+                                    <option value="中国广电">中国广电</option>
+                                    <option value="中国铁塔">中国铁塔</option>
+                                </select>
+                            </li>
+                            <li class="required no_active">
+                                <label>站点类型</label>
+                                <select  ng-model="add.site_type">
+                                    <option value="" disabled></option>
+                                    <option value="微站">微站</option>
+                                    <option value="宏站">宏站</option>
+                                    <option value="驻地网">驻地网</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="list-center-button">
+                <button ui-sref="root.database.projectMas.list[12]">取消</button>
+                <button ng-click="ownerAddFun()">确定</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

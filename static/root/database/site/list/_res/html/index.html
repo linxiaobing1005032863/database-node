@@ -1,0 +1,274 @@
+
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li ng-click="siteJump()">
+                    <a href="javascript:void(0)">
+                        <span>站点信息</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>{{detailText}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--列表-->
+        <div class="list"  >
+            <div class="list-table" style="display:{{lists._showDetail?'none':'block'}};" ng-hide="detailShow" >
+                <div class="list-top">
+                    <section class="flex1 {{siteLists._del?'active':''}}" ng-click="siteAll(siteLists)">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tick"></label>
+                    </section>
+                    <section class="flex4">站点名称</section>
+                    <section class="flex10">站点类型</section>
+                    <section class="flex8">站点区域</section>
+                    <section class="flex8">设计院</section>
+                    <!--<section class="flex8">监理</section>-->
+                    <!--<section class="flex8">站点地址</section>-->
+                </div>
+                <ul class="list-cenOul">
+                    <li class="list-style" ng-click="showDetail(lists)" ng-repeat="lists in siteLists" ng-dblclick = "jumpDetail(lists)">
+                        <section class="flex1">
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{lists._selectList?'tick':''}} {{siteLists._del?'tick':''}}" ></label>
+                        </section>
+                        <section class="flex4"  sho>{{lists.site_name}}</section>
+                        <section class="flex10" sho>{{lists.site_type}}</section>
+                        <section class="flex8"  sho>{{lists.site_region}}</section>
+                        <section class="flex8"  sho>{{lists.design_institute}}</section>
+                        <!--<section class="flex8"  sho>{{lists.supervisor}}</section>-->
+                        <!--<section class="flex8"  sho>{{lists.site_address}}</section>-->
+                    </li>
+                </ul>
+            </div>
+            <!--列表详情-->
+            <div class="list-detail" ng-show="detailShow">
+                <ul class="list-detail-oul">
+                    <li>
+                        <p>站点名称</p>
+                        <span>{{detailList.site_name}}</span>
+                    </li>
+                    <li>
+                        <p>站点类型</p>
+                        <span>{{detailList.site_type}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>合作公司</p>-->
+                        <!--<span>{{detailList.cooperation_company}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>站点区域</p>
+                        <span>{{detailList.site_region}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>科室</p>-->
+                        <!--<span>{{detailList.department}}</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<p>省公司规划</p>-->
+                        <!--<span>{{detailList.provincial_company_planning}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>设计院</p>
+                        <span>{{detailList.design_institute}}</span>
+                    </li>
+                    <li>
+                        <p>监理</p>
+                        <span>{{detailList.supervisor}}</span>
+                    </li>
+                    <li>
+                        <p>站点地址</p>
+                        <span>{{detailList.site_address}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>市公司重点专项</p>-->
+                        <!--<span>{{detailList.company_special}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>总投资</p>
+                        <span>{{detailList.total_investment}}</span>
+                    </li>
+                    <li>
+                        <p>集成费</p>
+                        <span>{{detailList.integration_fee}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>覆盖面积</p>-->
+                        <!--<span>{{detailList.covering_area}}</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<p>覆盖范围</p>-->
+                        <!--<span>{{detailList.coverage_range}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>站点经度</p>
+                        <span>{{detailList.longitude}}</span>
+                    </li>
+                    <li>
+                        <p>站点纬度</p>
+                        <span>{{detailList.latitude}}</span>
+                    </li>
+                    <li>
+                        <p>是否选址</p>
+                        <span>{{detailList.whether_address}}</span>
+                    </li>
+                    <li>
+                        <p>是否入场</p>
+                        <span>{{detailList.whether_admission}}</span>
+                    </li>
+                    <li>
+                        <p>入场时间</p>
+                        <span>{{detailList.admission_time}}</span>
+                    </li>
+                    <li>
+                        <p>是否完工</p>
+                        <span>{{detailList.whether_finished}}</span>
+                    </li>
+                    <li>
+                        <p>完工时间</p>
+                        <span>{{detailList.finished_time}}</span>
+                    </li>
+                    <li>
+                        <p>是否开通</p>
+                        <span>{{detailList.whether_open}}</span>
+                    </li>
+                    <li>
+                        <p>开通日期</p>
+                        <span>{{detailList.open_time}}</span>
+                    </li>
+                    <li>
+                        <p>单验证是否通过</p>
+                        <span>{{detailList.whether_verification}}</span>
+                    </li>
+                    <li>
+                        <p>单验日期</p>
+                        <span>{{detailList.verification_time}}</span>
+                    </li>
+                    <li>
+                        <p>是否初验</p>
+                        <span>{{detailList.whether_start_verification}}</span>
+                    </li>
+                    <li>
+                        <p>初验时间</p>
+                        <span>{{detailList.start_verification_time}}</span>
+                    </li>
+                    <li>
+                        <p>是否终验</p>
+                        <span>{{detailList.whether_end_verification}}</span>
+                    </li>
+                    <li>
+                        <p>初终验日期</p>
+                        <span>{{detailList.end_verification_time}}</span>
+                    </li>
+                    <li>
+                        <p>联系人姓名</p>
+                        <span>{{detailList.contact_name}}</span>
+                    </li>
+                    <li>
+                        <p>联系人性别</p>
+                        <span>{{detailList.contact_sex}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>联系人职位</p>-->
+                        <!--<span>{{detailList.contact_position}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>联系人电话</p>
+                        <span>{{detailList.contact_phone}}</span>
+                    </li>
+                    <li>
+                        <p>联系人微信</p>
+                        <span>{{detailList.contact_WeChat}}</span>
+                    </li>
+                    <li>
+                        <p>联系人邮箱</p>
+                        <span>{{detailList.contact_email}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>联系人性格</p>-->
+                        <!--<span>{{detailList.contact_character}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>联系人脾气</p>
+                        <span>{{detailList.contact_temper}}</span>
+                    </li>
+                    <li>
+                        <p>联系人兴趣</p>
+                        <span>{{detailList.contact_hobby}}</span>
+                    </li>
+                    <li>
+                        <p>共同认识的人</p>
+                        <span>{{detailList.know_people}}</span>
+                    </li>
+                    <li>
+                        <p>备注</p>
+                        <span>{{detailList.remark}}</span>
+                    </li>
+                    <li>
+                        <p>对应的现网状态</p>
+                        <span>{{detailList.current_network_state}}</span>
+                    </li>
+                    <li>
+                        <p>对应的站点状态</p>
+                        <span>{{detailList.site_state}}</span>
+                    </li>
+                    <li>
+                        <p>对应的归属运营商</p>
+                        <span>{{detailList.operator}}</span>
+                    </li>
+                </ul>
+                <section class="list-detail-sec">
+                    <p>资料完善</p>
+                    <dl class="dlWid">
+                        <dd class="ddWid"><span class="scaleDl">{{detailList.percent}}</span></dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+        </div>
+    </div>
+
+</section>
+<!--删除-->
+<div class="delete" ng-show="delShow">
+    <div class="del-head">
+            <span  ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+        <h3>温馨提示</h3>
+        <p>您确定要删除此数据吗？</p>
+    </div>
+    <div class="del-btn">
+        <button ng-click="cancel()">取消</button>
+        <button ng-click="delFn()">确定</button>
+    </div>
+</div>
+<div id="maskBg"  ng-show="delShow"></div>

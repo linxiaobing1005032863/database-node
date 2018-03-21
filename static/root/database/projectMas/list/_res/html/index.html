@@ -1,0 +1,166 @@
+
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li ng-click="jumpList()">
+                    <a href="javascript:void(0)">
+                        <span>项目信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>{{detailText}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--列表-->
+        <div class="list"  >
+            <div class="list-table" style="display:{{lists._showDetail?'none':'block'}};" ng-hide="detailShow" >
+                <div class="list-top">
+                    <section class="flex1 {{projectLists._del?'active':''}}" ng-click="projectAll(projectLists)">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tiv"></label>
+                    </section>
+                    <section class="flex4">项目名称</section>
+                    <section class="flex10">项目类型</section>
+                    <section class="flex8">业务类型</section>
+                    <section class="flex8">数据来源</section>
+                    <section class="flex8">项目收集时间</section>
+                    <section class="flex8">创建人</section>
+                </div>
+                <ul class="list-cenOul">
+                    <li class="list-style" ng-click="projectShowDetail(lists)" ng-repeat="lists in projectLists" ng-dblclick = "jumpDetail(lists)">
+                        <section class="flex1">
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{lists._selectList?'tick':''}} {{projectLists._del?'tick':''}}" ></label>
+                        </section>
+                        <section class="flex4"  sho>{{lists.project_name}}</section>
+                        <section class="flex10" sho>{{lists.project_type}}</section>
+                        <section class="flex8"  sho>{{lists.business_type}}</section>
+                        <section class="flex8"  sho>{{lists.data_source}}</section>
+                        <section class="flex8"  sho>{{lists.project_collect_time}}</section>
+                        <section class="flex8"  sho>{{lists.founder}}</section>
+                    </li>
+                </ul>
+            </div>
+            <!--列表详情-->
+            <div class="list-detail" ng-show="detailShow">
+                <ul class="list-detail-oul">
+                    <li>
+                        <p>项目名称</p>
+                        <span>{{detailList.project_name}}</span>
+                    </li>
+                    <li>
+                        <p>项目类型</p>
+                        <span>{{detailList.project_type}}</span>
+                    </li>
+                    <li>
+                        <p>业务类型</p>
+                        <span>{{detailList.business_type}}</span>
+                    </li>
+                    <li>
+                        <p>数据来源</p>
+                        <span>{{detailList.data_source}}</span>
+                    </li>
+                    <li>
+                        <p>项目收集时间</p>
+                        <span>{{detailList.project_collect_time}}</span>
+                    </li>
+                    <li>
+                        <p>创建人</p>
+                        <span>{{detailList.founder}}</span>
+                    </li>
+                    <li>
+                        <p>项目地区</p>
+                        <span>{{detailList.project_address}}</span>
+                    </li>
+                    <li>
+                        <p>项目立项情况</p>
+                        <span>{{detailList.project_establishment}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>站点经纬度</p>-->
+                        <!--<span>{{detailList.latitude_and_longitude}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>甲方公司</p>
+                        <span>{{detailList.party_a_company}}</span>
+                    </li>
+                    <li>
+                        <p>甲方和中标单位合同</p>
+                        <span>{{detailList.party_a_bid_contract}}</span>
+                    </li>
+                    <li>
+                        <p>与中标单位的合同</p>
+                        <span>{{detailList.bid_contract}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>与业主签订的合同</p>-->
+                        <!--<span>{{detailList.owner_contract}}</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<p>甲方和业主的合同</p>-->
+                        <!--<span>{{detailList.party_a_owner_contract}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>中标单位</p>
+                        <span>{{detailList.bid_company}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>业主客户名称</p>-->
+                        <!--<span>{{detailList.owner_customer}}</span>-->
+                    <!--</li>-->
+                </ul>
+                <section class="list-detail-sec">
+                    <p>资料完善</p>
+                    <dl class="dlWid">
+                        <dd class="ddWid"><span class="scaleDl">{{detailList.percent}}</span></dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+        </div>
+    </div>
+
+</section>
+<!--删除-->
+<div class="delete" ng-show="delShow">
+    <div class="del-head">
+            <span  ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+        <h3>温馨提示</h3>
+        <p>您确定要删除此数据吗？</p>
+    </div>
+    <div class="del-btn">
+        <button ng-click="cancel()">取消</button>
+        <button ng-click="delFn()">确定</button>
+    </div>
+</div>
+<div id="maskBg"  ng-show="delShow"></div>

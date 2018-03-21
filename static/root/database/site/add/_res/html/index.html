@@ -1,0 +1,288 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>站点信息</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>添加</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--添加样式-->
+        <div class="list-center" verify-scope="tipStyle: 1">
+            <div class="list-center-kind">
+                <ul class="list-center-oul">
+                    <li class="required">
+                        <label>站点名称</label>
+                        <input type="text" ng-model="add.site_name">
+                    </li>
+                    <li class="required">
+                        <label>站点类型</label>
+                        <input type="text" ng-model="add.site_type">
+
+                    </li>
+                    <!--<li>-->
+                        <!--<label>合作公司</label>-->
+                        <!--<input type="text" ng-model="add.cooperation_company">-->
+                    <!--</li>-->
+                    <li class="required">
+                        <label>站点区域</label>
+                        <a href="javascript:void(0)" class="pick-area pick-area6 SVGUROKDQT1517380985000"  style="width: 340px;">
+                        </a>
+                    </li>
+                    <!--<li>-->
+                        <!--<label>科室</label>-->
+                        <!--<input type="text" ng-model="add.department">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label>省公司规划</label>-->
+                        <!--<input type="text" ng-model="add.provincial_company_planning">-->
+                    <!--</li>-->
+                    <li class="required">
+                        <label>设计院</label>
+                        <input type="text" ng-model="add.design_institute">
+                    </li>
+                    <li class="required">
+                        <label>监理</label>
+                        <input type="text" ng-model="add.supervisor">
+                    </li>
+                    <li class="required">
+                        <label>站点地址</label>
+                        <input type="text" ng-model="add.site_address">
+                    </li>
+                    <!--<li>-->
+                        <!--<label>市公司重点专项</label>-->
+                        <!--<input type="text" ng-model="add.company_special">-->
+                    <!--</li>-->
+                    <li>
+                        <label>总投资</label>
+                        <input type="text" ng-model="add.total_investment">
+                    </li>
+                    <li>
+                        <label>集成费</label>
+                        <input type="text" ng-model="add.integration_fee">
+                    </li>
+                    <!--<li>-->
+                        <!--<label>覆盖面积</label>-->
+                        <!--<input type="text" ng-model="add.covering_area">-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label>覆盖范围</label>-->
+                        <!--<input type="text" ng-model="add.coverage_range">-->
+                    <!--</li>-->
+                    <li>
+                        <label>站点经度</label>
+                        <input type="text" ng-model="add.longitude">
+                    </li>
+                    <li>
+                        <label>站点纬度</label>
+                        <input type="text" ng-model="add.latitude">
+                    </li>
+                    <li class="required">
+                        <label>是否选址</label>
+                        <select  ng-model="add.whether_address">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li ng-show="add.whether_address =='1'" class="required">
+                        <label>是否入场</label>
+                        <select  ng-model="add.whether_admission">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li ng-show="add.whether_address =='1'&&add.whether_admission =='1'" class="required">
+                        <label>入场时间</label>
+                        <input type="text" ng-model="add.admission_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="admission-time">
+                    </li>
+                    <li ng-show="add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>是否完工</label>
+                        <select  ng-model="add.whether_finished">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li ng-show="add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>完工时间</label>
+                        <input type="text" ng-model="add.finished_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="finish-time">
+                    </li>
+                    <li   ng-show="add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>是否开通</label>
+                        <select  ng-model="add.whether_open">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li   ng-show="add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>开通日期</label>
+                        <input type="text" ng-model="add.open_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="open-time">
+                    </li>
+                    <li   ng-show="add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>单验证是否通过</label>
+                        <select  ng-model="add.whether_verification">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li   ng-show="add.whether_verification =='1'&&add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'" class="required">
+                        <label>单验日期</label>
+                        <input type="text" ng-model="add.verification_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="ver-time">
+                    </li>
+                    <li  class="required" ng-show="add.whether_verification =='1'&&add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'">
+                        <label>是否初验</label>
+                        <select  ng-model="add.whether_start_verification">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li class="required"  ng-show="add.whether_start_verification =='1'&&add.whether_verification =='1'&&add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'">
+                        <label>初验时间</label>
+                        <input type="text" ng-model="add.start_verification_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="start-time">
+                    </li>
+                    <li class="required"  ng-show="add.whether_start_verification =='1'&&add.whether_verification =='1'&&add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'">
+                        <label>是否终验</label>
+                        <select  ng-model="add.whether_end_verification">
+                            <option value="" disabled></option>
+                            <option value="1">是</option>
+                            <option value="0">否</option>
+                        </select>
+                    </li>
+                    <li  class="required" ng-show="add.whether_end_verification=='1'&&add.whether_start_verification =='1'&&add.whether_verification =='1'&&add.whether_open =='1'&&add.whether_finished =='1'&&add.whether_admission =='1'&& add.whether_address =='1'">
+                        <label>终验日期</label>
+                        <input type="text" ng-model="add.end_verification_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="end-time">
+                    </li>
+                    <li  class="required">
+                        <label>联系人姓名</label>
+                        <input type="text" ng-model="add.contact_name">
+                    </li>
+                    <li class="required">
+                        <label>联系人性别</label>
+                            <select  ng-model="add.contact_sex">
+                                <option value="" disabled></option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                    </li>
+                    <!--<li  >-->
+                        <!--<label>联系人职位</label>-->
+                        <!--<input type="text" ng-model="add.contact_position">-->
+                    <!--</li>-->
+                    <li class="required">
+                        <label>联系人电话</label>
+                        <input type="text" ng-model="add.contact_phone">
+                    </li>
+                    <li  >
+                        <label>联系人微信</label>
+                        <input type="text" ng-model="add.contact_WeChat">
+                    </li>
+                    <li  >
+                        <label>联系人邮箱</label>
+                        <input type="text" ng-model="add.contact_email">
+                    </li>
+                    <!--<li  >-->
+                        <!--<label>联系人性格</label>-->
+                        <!--<input type="text" ng-model="add.contact_character">-->
+                    <!--</li>-->
+                    <li  >
+                        <label>联系人脾气</label>
+                        <input type="text" ng-model="add.contact_temper">
+                    </li>
+                    <li  >
+                        <label>联系人兴趣</label>
+                        <input type="text" ng-model="add.contact_hobby">
+                    </li>
+                    <li  >
+                        <label>共同认识的人</label>
+                        <input type="text"  ng-model="add.know_people">
+                    </li>
+                    <li  >
+                        <label>备注</label>
+                        <input type="text" ng-model="add.remark">
+                    </li>
+                    <li class="required ">
+                        <label>现网状态</label>
+                        <select  ng-model="add.current_network_state">
+                            <option value="" disabled></option>
+                            <option value="有现网">有现网</option>
+                            <option value="无现网">无现网</option>
+                        </select>
+                    </li>
+                    <li class="required no_active">
+                        <label>站点状态</label>
+                        <select  ng-model="add.site_state" >
+                            <!--<option value="" disabled></option>-->
+                            <option value="无需改造" ng-show="add.current_network_state=='有现网'">无需改造</option>
+                            <option value="改造2G&3G&4G" ng-show="add.current_network_state=='有现网'">改造2G&3G&4G</option>
+                            <option value="改造2G&3G" ng-show="add.current_network_state=='有现网'">改造2G&3G</option>
+                            <option value="改造2G&4G" ng-show="add.current_network_state=='有现网'">改造2G&4G</option>
+                            <option value="改造3G&4G" ng-show="add.current_network_state=='有现网'">改造3G&4G</option>
+                            <option value="无需新建" ng-show="add.current_network_state=='无现网'">无需新建</option>
+                            <option value="新建2G" ng-show="add.current_network_state=='无现网'">新建2G</option>
+                            <option value="新建3G" ng-show="add.current_network_state=='无现网'">新建3G</option>
+                            <option value="新建4G" ng-show="add.current_network_state=='无现网'">新建4G</option>
+                            <option value="新建2G&3G&4G" ng-show="add.current_network_state=='无现网'">新建2G&3G&4G</option>
+                            <option value="新建2G&3G" ng-show="add.current_network_state=='无现网'">新建2G&3G</option>
+                            <option value="新建2G&4G" ng-show="add.current_network_state=='无现网'">新建2G&4G</option>
+                            <option value="新建3G&4G" ng-show="add.current_network_state=='无现网'">新建3G&4G</option>
+                        </select>
+                    </li>
+                    <li class="required no_active">
+                        <label>归属运营商</label>
+                        <select  ng-model="add.operator">
+                            <option value="" disabled></option>
+                            <option value="中国联通">中国联通</option>
+                            <option value="中国移动">中国移动</option>
+                            <option value="中国电信">中国电信</option>
+                            <option value="中国广电">中国广电</option>
+                            <option value="中国铁塔">中国铁塔</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-center-button">
+                <button ui-sref="root.database.site.list[12]">取消</button>
+                <button ng-verify="{control:'myform'}" ng-click="siteAddFun()">确定</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

@@ -1,0 +1,143 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>项目信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>查看附件</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--添加样式-->
+        <div class="list-center" style="display:none;">
+            <div class="list-center-kind">
+                <ul class="list-center-oul">
+                    <li class="required">
+                        <label>必填文字框</label>
+                        <input type="text">
+                    </li>
+                    <li class="required">
+                        <label>必填可填下拉框</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel">
+                                <option value=""></option>
+                                <option value="true">是</option>
+                                <option value="false">否</option>
+                            </select>
+                            <input type="text" class="box-upload-text">
+                        </div>
+                    </li>
+                    <li class="required">
+                        <label>必填枚举框</label>
+                        <div class="box-en-bg">
+                            <section class="box-circle">
+                            </section>
+                            <span class="box-circle-text">否</span>
+                        </div>
+                    </li>
+                    <li>
+                        <label>非必填枚举框</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel">
+                                <option value=""></option>
+                                <option value="true">是</option>
+                                <option value="false">否</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label>非必填文字框</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel">
+                                <option value=""></option>
+                                <option value="春">春</option>
+                                <option value="夏">夏</option>
+                                <option value="秋">秋</option>
+                                <option value="冬">冬</option>
+                            </select>
+                            <input type="text" class="box-upload-text">
+                        </div>
+                    </li>
+                    <li>
+                        <label>非必填文字框</label>
+                        <input type="text">
+                    </li>
+                </ul>
+            </div>
+            <div class="list-center-button">
+                <button>取消</button>
+                <button>确定</button>
+            </div>
+        </div>
+        <!--上传附件样式-->
+        <div class="list-upload" style="display: none;">
+            <section class="list-upload-top">
+                <em>
+                    <svg role="img" class="upload">
+                        <use xlink:href="#upload"></use>
+                    </svg>
+                </em>
+                <p>直接拖拽您的文件到这里</p>
+                <span>或者点击这片区域</span>
+            </section>
+            <button class="list-upload-btn">上传</button>
+        </div>
+        <!--查看附件样式-->
+        <div class="list-view" style="display:block;" >
+            <div class="list-view-table" >
+                <div class="list-view-top">
+                    <section class="flex1">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tick" style="visibility: hidden"></label>
+                    </section>
+                    <section>附件名称</section>
+                    <section>大小</section>
+                    <section>操作</section>
+                </div>
+                <ul class="list-view-cenOul">
+                    <li class="list-view-style" ng-repeat="view in views"  ng-click="showView(view)">
+                        <section>
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{view._selectList?'tick':''}}"></label>
+                        </section>
+                        <section>{{view.contract_name}}</section>
+                        <section>{{view.file_size}}</section>
+                        <section>
+                            <a href="javascript:void(0)" ng-click="del(view.type)">删除</a>
+                            <a href="javascript:void(0)" ng-click="dol(view.type)">下载</a>
+                        </section>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

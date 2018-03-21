@@ -1,0 +1,58 @@
+<div class="box">
+    <!--右边主体部分-->
+    <div class="secThree">
+        <header>
+            <div class="headerDiv">
+                <!--主体导航部分-->
+                <div class="rightNav">
+                    <ul>
+                        <li class="disable"><a href="javascript:void(0)">
+                            <svg role="img" class="left">
+                                <use xlink:href="#left"></use>
+                            </svg>
+                        </a>
+                        </li>
+                        <li ng-click="list()" ng-class="{'active':menuClass=='listMenu'}" ui-sref=".list[12]" >
+                            <a href="javascript:void(0)">列表</a>
+                        </li>
+                        <li ng-click="add()" ng-class="{'active':menuClass=='addMenu'}" ui-sref=".add[12]">
+                            <a href="javascript:void(0)">添加</a>
+                        </li>
+                        <li ng-click="edit()" ng-class="{'active':menuClass=='editMenu','seeParent':idListd}">
+                            <a href="javascript:void(0)">编辑</a>
+                        </li>
+                        <li ng-click="delete()" ng-class="{'active':menuClass=='deleteMenu','seeParent':idListd}">
+                            <a href="javascript:void(0)">删除</a>
+                        </li>
+                        <li ng-click="all()" ng-class="{'active':menuClass=='allMenu','seeParent':idListd}">
+                            <a href="javascript:void(0)">批量删除</a>
+                        </li>
+                        <!--<li ng-click="view()" ng-class="{'active':menuClass=='viewMenu','seeParent':idListd}">-->
+                            <!--<a href="javascript:void(0)">查看附件</a>-->
+                        <!--</li>-->
+                        <li ng-click="download()" ng-class="{'active':menuClass=='downloadMenu'}">
+                            <a href="javascript:void(0)">批量模板下载</a>
+                        </li>
+                        <li ng-click="upload()" ng-class="{'active':menuClass=='uploadMenu'}" ui-sref=".upload[12]">
+                            <a href="javascript:void(0)">批量上传</a>
+                        </li>
+                        <li class="disable">
+                            <a href="javascript:void(0)">
+                                <svg role="img" class="left">
+                                    <use xlink:href="#left"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <!--主体内容部分-->
+            <div class="rightBottom">
+            </div>
+        </section>
+    </div>
+</div>
+
+

@@ -1,0 +1,46 @@
+<div class="box">
+    <!--右边主体部分-->
+    <div class="secThree">
+        <header>
+            <div class="headerDiv">
+                <!--主体导航部分-->
+                <div class="rightNav">
+                    <ul>
+                        <li class="disable"><a href="javascript:void(0)">
+                            <svg role="img" class="left">
+                                <use xlink:href="#left"></use>
+                            </svg>
+                        </a>
+                        </li>
+                        <li ng-click="list()" ng-class="{'active':menuClass=='listMenu'}" ui-sref=".list[12]" >
+                            <a href="javascript:void(0)">列表</a>
+                        </li>
+                        <li ng-click="delete()" ng-class="{'active':menuClass=='deleteMenu','seeParent':idListd}">
+                            <a href="javascript:void(0)">删除</a>
+                        </li>
+                        <li ng-click="download()" ng-class="{'active':menuClass=='downloadMenu','seeParent':idListd}">
+                            <a href="javascript:void(0)">下载</a>
+                        </li>
+                        <li ng-click="upload()" ng-class="{'active':menuClass=='uploadMenu'}" ui-sref=".upload[12]">
+                            <a href="javascript:void(0)">上传附件</a>
+                        </li>
+                        <li class="disable">
+                            <a href="javascript:void(0)">
+                                <svg role="img" class="left">
+                                    <use xlink:href="#left"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="content">
+            <!--主体内容部分-->
+            <div class="rightBottom">
+            </div>
+        </section>
+    </div>
+</div>
+
+

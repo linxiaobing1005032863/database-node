@@ -1,0 +1,82 @@
+<!--导航部分-->
+<nav class="nav">
+    <!--左边导航-->
+    <div class="secOne">
+        <ul class="secOul">
+            <li ng-click="menuCla('know')"  ng-class="{'active':menuClass=='know'}">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="know">
+                        <use xlink:href="#know"></use>
+                    </svg>
+                    <span>知己知彼</span>
+                </a>
+            </li>
+            <li  ng-click="menuCla('business')"  ng-class="{'active':menuClass=='business'}">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="business">
+                        <use xlink:href="#business"></use>
+                    </svg>
+                    <span>商务管理</span>
+                </a>
+            </li>
+            <li  ng-click="menuCla('contract')"  ng-class="{'active':menuClass=='contract'}">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="contract">
+                        <use xlink:href="#contract"></use>
+                    </svg>
+                    <span>任务管理</span>
+                </a>
+            </li>
+            <li  ng-click="menuCla('follow')"  ng-class="{'active':menuClass=='follow'}">
+                <a href="javascript:void(0)" class="boc">
+                    <svg role="img" class="follow">
+                        <use xlink:href="#follow"></use>
+                    </svg>
+                    <span>进度跟踪</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--中间导航部分-->
+    <div class="secTwo">
+        <ul class="secOulTwo">
+            <li>
+                <input type="text" placeholder="请输入关键字">
+                <svg role="img" class="search">
+                    <use xlink:href="#search"></use>
+                </svg>
+            </li>
+            <li ng-click="haveAct = !haveAct" ng-class="{'active':!haveAct}" >
+                <span>&nbsp;&nbsp;&nbsp;资料库</span>
+                <svg role="img" class="down">
+                    <use xlink:href="#down"></use>
+                </svg>
+                <ul class="navOul" ng-hide="haveAct" ng-click="shop($event)">
+                    <li ng-click="navCla('projectMas')"   ng-class="{'active':navClass=='projectMas'}" ui-sref="_root.database.projectMas.list[12]">
+                        <a href="javascript:void(0)">项目信息管理</a>
+                    </li>
+                    <li ng-click="navCla('owner')"  ng-class="{'active':navClass=='owner'}" ui-sref="_root.database.owner.list[12]">
+                        <a href="javascript:void(0)">业主信息管理</a>
+                    </li>
+                    <li ng-click="navCla('unitInfo')"  ng-class="{'active':navClass=='unitInfo'} " ui-sref="_root.database.unitInfo.list[12]">
+                        <a href="javascript:void(0)">中标单位信息管理</a>
+                    </li>
+                    <li ng-click="navCla('site')"  ng-class="{'active':navClass=='site'}" ui-sref="_root.database.site.list[12]">
+                        <a href="javascript:void(0)">站点信息</a>
+                    </li>
+                    <li ng-click="navCla('we')"  ng-class="{'active':navClass=='we'}" ui-sref="_root.database.we.list[12]">
+                        <a href="javascript:void(0)">我的文档</a>
+                    </li>
+                </ul>
+            </li>
+            <li ng-repeat=" list in navName">
+                <a ng-href="{{list.url}}" target="_self">
+                    <span>{{list.name}}</span>
+                    <svg role="img" class="down">
+                        <use xlink:href="#down"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

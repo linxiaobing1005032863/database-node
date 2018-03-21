@@ -1,0 +1,310 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>项目信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>添加</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--添加样式-->
+        <div class="list-center">
+            <div class="list-center-kind">
+                <ul class="list-center-oul">
+                    <li class="required">
+                        <label>项目名称</label>
+                        <input type="text" ng-model="edit.project_name">
+                    </li>
+                    <li class="required">
+                        <label>项目类型</label>
+                        <!--<input type="text" ng-model="edit.project_type">-->
+                        <select  ng-model="edit.project_type">
+                            <option value="" disabled></option>
+                            <option value="宏站">宏站</option>
+                            <option value="基站">基站</option>
+                            <option value="驻地网">驻地网</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>业务类型</label>
+                        <!--<input type="text" ng-model="edit.business_type">-->
+                        <select  ng-model="edit.business_type">
+                            <option value="" disabled></option>
+                            <option value="通讯类">通讯类</option>
+                            <option value="软件类">软件类</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>数据来源</label>
+                        <!--<input type="text" ng-model="edit.data_source">-->
+                        <select  ng-model="edit.data_source">
+                            <option value="" disabled></option>
+                            <option value="中标单位上传">中标单位上传</option>
+                            <option value="业主上传">业主上传</option>
+                            <option value="业务员上传">业务员上传</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>项目收集时间</label>
+                        <input type="text" ng-model="edit.project_collect_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss '})" class="time" onblur = "laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss '})">
+                    </li>
+                    <li class="required">
+                        <label>创建人</label>
+                        <input type="text" ng-model="edit.founder">
+                    </li>
+                    <li class="required">
+                        <label>重要级别</label>
+                        <select  ng-model="edit.important_level">
+                            <option value="" disabled></option>
+                            <option value="非常重要">非常重要</option>
+                            <option value="重要">重要</option>
+                            <option value="一般">一般</option>
+                        </select>
+                    </li>
+                    <li class="required">
+                        <label>项目地区</label>
+                            <div class="info">
+                                <a href="javascript:void(0)" class="pick-area pick-area6 SVGUROKDQT1517380985000"  style="width: 340px;">
+                                </a>
+                            </div>
+
+                    </li>
+                    <li class="required">
+                        <label>项目立项情况</label>
+                        <input type="text" ng-model="edit.project_establishment">
+                    </li>
+                    <!--<li class="required">-->
+                        <!--<label>站点经纬度</label>-->
+                        <!--<input type="text" ng-model="edit.latitude_and_longitude">-->
+                    <!--</li>-->
+                    <li class="required">
+                        <label>甲方公司</label>
+                        <input type="text" ng-model="edit.party_a_company">
+                    </li>
+                    <li class="required">
+                        <label>中标单位</label>
+                        <input type="text" ng-model="edit.bid_company">
+                    </li>
+                    <!--<li class="required">-->
+                        <!--<label>业主客户名称</label>-->
+                        <!--<input type="text" ng-model="edit.owner_customer">-->
+                    <!--</li>-->
+
+                    <li class="required active">
+                        <label>甲方和中标单位合同</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel" ng-model="edit.party_a_bid_contract">
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                            <button class="box-circle-btn"  id="changeText" ng-show="edit.party_a_bid_contract=='是'">上传附件</button>
+                            <label class="upload-pic changeText" for="uploadFile" ng-show="edit.party_a_bid_contract=='是'">
+                                <input type="file" id='uploadFile' style="display: none" onchange='angular.element(this).scope().fileNameChanged(".changeText","#changeText","uploadFile")' multiple=“multiple”>
+                            </label>
+                            <button class="box-circle-btn2" ng-click="updataSel('#changeText')" ng-show="edit.party_a_bid_contract=='是'">确定上传</button>
+                        </div>
+                    </li>
+                    <li class="required active" ng-show="ads">
+                        <label>甲方和中标单位合同附件url</label>
+                        <input type="text" ng-model="edit.party_a_bid_contract_url">
+                    </li>
+                    <li class="required active" ng-show=" edit.party_a_bid_contract=='是'">
+                        <label>甲方和中标单位合同签订时间</label>
+                        <input type="text" ng-model="edit.party_a_bid_contract_sign_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="one-sign-time">
+                    </li>
+                    <li class="required active"  ng-show=" edit.party_a_bid_contract=='是'">
+                        <label>甲方和中标单位合同开始时间</label>
+                        <input type="text" ng-model="edit.party_a_bid_contract_start_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="one-start-time">
+                    </li>
+                    <li class="required active"  ng-show=" edit.party_a_bid_contract=='是'">
+                        <label>甲方和中标单位合同结束时间</label>
+                        <input type="text" ng-model="edit.party_a_bid_contract_end_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="one-end-time">
+                    </li>
+                    <li class="required active">
+                        <label>与中标单位的合同附件</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel" ng-model="edit.bid_contract">
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                            <button class="box-circle-btn"  id="changeTextOne" ng-show="edit.bid_contract=='是'">上传附件</button>
+                            <label class="upload-pic changeTextOne" for="uploadFileOne"  ng-show="edit.bid_contract=='是'">
+                                <input type="file" id='uploadFileOne' style="display: none" onchange='angular.element(this).scope().fileNameChanged(".changeTextOne","#changeTextOne","uploadFileOne")' multiple=“multiple”>
+                            </label>
+                            <button class="box-circle-btn2" ng-click="updataSel('#changeTextOne')" ng-show="edit.bid_contract=='是'">确定上传</button>
+                        </div>
+                    </li>
+                    <li class="required active" ng-show="ads">
+                        <label>与中标单位的合同附件url</label>
+                        <input type="text" ng-model=" edit.bid_contract_url">
+                    </li>
+                    <li class="required active" ng-show="edit.bid_contract=='是'">
+                        <label>与中标单位的合同签订时间</label>
+                        <input type="text" ng-model=" edit.bid_contract_sign_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="two-sign-time">
+                    </li>
+                    <li class="required active"  ng-show="edit.bid_contract=='是'">
+                        <label>与中标单位的合同开始时间</label>
+                        <input type="text" ng-model=" edit.bid_contract_start_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="two-start-time">
+                    </li>
+                    <li class="required active"  ng-show="edit.bid_contract=='是'">
+                        <label>与中标单位的合同结束时间</label>
+                        <input type="text" ng-model="edit.bid_contract_end_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="two-end-time">
+                    </li>
+                    <!--<li class="required active">-->
+                        <!--<label>是否与业主签订的合同</label>-->
+                        <!--<div class="box-upload-div">-->
+                            <!--<select class="box-upload-sel" ng-model="edit.owner_contract">-->
+                                <!--<option value="是">是</option>-->
+                                <!--<option value="否">否</option>-->
+                            <!--</select>-->
+                            <!--<button class="box-circle-btn"  id="changeTextTwo" ng-show=" edit.owner_contract=='是'">上传附件</button>-->
+                            <!--<label class="upload-pic changeTextTwo" for="uploadFileTwo" ng-show=" edit.owner_contract=='是'">-->
+                                <!--<input type="file" id='uploadFileTwo' style="display: none" onchange='angular.element(this).scope().fileNameChanged(".changeTextTwo","#changeTextTwo","uploadFileTwo")' multiple=“multiple”>-->
+                            <!--</label>-->
+                            <!--<button class="box-circle-btn2" ng-click="updataSel('#changeTextTwo')" ng-show="edit.owner_contract=='是'">确定上传</button>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li class="required active" ng-show="ads">-->
+                        <!--<label>与业主签订的合同url</label>-->
+                        <!--<input type="text" ng-model=" edit.owner_contract_url">-->
+                    <!--</li>-->
+                    <!--<li class="required active" ng-show=" edit.owner_contract=='是'">-->
+                        <!--<label>与业主签订的合同签订时间</label>-->
+                        <!--<input type="text" ng-model=" edit.owner_contract_sign_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="three-sign-time">-->
+                    <!--</li>-->
+                    <!--<li class="required active"  ng-show="edit.owner_contract=='是'">-->
+                        <!--<label>与业主签订的合同开始时间</label>-->
+                        <!--<input type="text" ng-model=" edit.owner_contract_start_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="three-start-time">-->
+                    <!--</li>-->
+                    <!--<li class="required active"  ng-show="edit.owner_contract=='是'">-->
+                        <!--<label>与业主签订的合同结束时间</label>-->
+                        <!--<input type="text" ng-model=" edit.owner_contract_end_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="three-end-time">-->
+                    <!--</li>-->
+                    <!--<li class="required active">-->
+                        <!--<label>是否甲方和业主的合同</label>-->
+                        <!--<div class="box-upload-div">-->
+                            <!--<select class="box-upload-sel" ng-model="edit.party_a_owner_contract">-->
+                                <!--<option value="是">是</option>-->
+                                <!--<option value="否">否</option>-->
+                            <!--</select>-->
+                            <!--<button class="box-circle-btn"  id="changeTextThree" ng-show=" edit.party_a_owner_contract=='是'">上传附件</button>-->
+                            <!--<label class="upload-pic changeTextThree" for="uploadFileThree" ng-show=" edit.party_a_owner_contract=='是'">-->
+                                <!--<input type="file" id='uploadFileThree' style="display: none" onchange='angular.element(this).scope().fileNameChanged(".changeTextThree","#changeTextThree","uploadFileThree")' multiple=“multiple”>-->
+                            <!--</label>-->
+                            <!--<button class="box-circle-btn2" ng-click="updataSel('#changeTextThree')" ng-show=" edit.party_a_owner_contract=='是'">确定上传</button>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                    <!--<li class="required active" ng-show="ads">-->
+                        <!--<label>甲方和业主的合同url</label>-->
+                        <!--<input type="text" ng-model=" edit.party_a_owner_contract_url">-->
+                    <!--</li>-->
+                    <!--<li class="required active" ng-show="edit.party_a_owner_contract=='是'">-->
+                        <!--<label>甲方和业主的合同签订时间</label>-->
+                        <!--<input type="text" ng-model="edit.party_a_owner_contract_sign_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="four-sign-time">-->
+                    <!--</li>-->
+                    <!--<li class="required active"  ng-show="edit.party_a_owner_contract=='是'">-->
+                        <!--<label>甲方和业主的合同开始时间</label>-->
+                        <!--<input type="text" ng-model=" edit.party_a_owner_contract_start_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="four-start-time">-->
+                    <!--</li>-->
+                    <!--<li class="required active"  ng-show="edit.party_a_owner_contract=='是'">-->
+                        <!--<label>甲方和业主的合同结束时间</label>-->
+                        <!--<input type="text" ng-model=" edit.party_a_owner_contract_end_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD'})" class="four-end-time">-->
+                    <!--</li>-->
+                    <li >
+                        <label>项目规模(个)</label>
+                        <input type="text" ng-model="edit.project_scale">
+                    </li>
+                    <li >
+                        <label>项目金额(万元)</label>
+                        <input type="text" ng-model="edit.project_money">
+                    </li>
+                    <li  >
+                        <label>项目计划开工时间</label>
+                        <input type="text" ng-model="edit.project_start_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})"  onblur="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="project_start_time">
+                    </li>
+                    <li  >
+                        <label>项目计划竣工时间</label>
+                        <input type="text" ng-model="edit.project_completed_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD  '})"  onblur="laydate({istime: true, format: 'YYYY-MM-DD  '})" class="project_completed_time">
+                    </li>
+                    <li >
+                        <label>甲方项目负责人</label>
+                        <input type="text" ng-model="edit.party_a_responsible">
+                    </li>
+                    <li >
+                        <label>甲方项目负责人联系方式（电话)</label>
+                        <input type="text" ng-model="edit.party_a_responsible_phone">
+                    </li>
+                    <li >
+                        <label>中标单位项目负责人</label>
+                        <input type="text" ng-model="edit.bid_contract_responsible">
+                    </li>
+                    <li >
+                        <label>中标单位项目负责人联系方式（电话）</label>
+                        <input type="text" ng-model="edit.bid_contract_responsible_phone">
+                    </li>
+                    <li class="required active no_active">
+                        <label>是否已有选址政策</label>
+                        <div class="box-upload-div">
+                            <select class="box-upload-sel" ng-model="edit.site_selection">
+                                <option value="是">是</option>
+                                <option value="否">否</option>
+                            </select>
+                            <button class="box-circle-btn"  id="changeTextFour" ng-show="edit.site_selection=='是'">上传附件</button>
+                            <label class="upload-pic changeTextFour" for="uploadFileFour" ng-show="edit.site_selection=='是'">
+                                <input type="file" id='uploadFileFour' style="display: none" onchange='angular.element(this).scope().fileNameChanged(".changeTextFour","#changeTextFour","uploadFileFour")' multiple=“multiple”>
+                            </label>
+                            <button class="box-circle-btn2" ng-click="updataSel('#changeTextFour')" ng-show="edit.site_selection=='是'">确定上传</button>
+                        </div>
+                    </li>
+                    <li >
+                        <label>监理单位</label>
+                        <input type="text" ng-model="edit.supervisor_company">
+                    </li>
+                    <li >
+                        <label>设计单位</label>
+                        <input type="text" ng-model="edit.design_company">
+                    </li>
+
+                </ul>
+            </div>
+            <div class="list-center-button">
+                <button ui-sref="root.database.projectMas.list[12]">取消</button>
+                <button ng-click="projectEditFun()">确定</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+</script>

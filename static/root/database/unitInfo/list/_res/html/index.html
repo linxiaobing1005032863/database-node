@@ -1,0 +1,197 @@
+
+<section class="customcustomcustom">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li ng-click="unitJump()">
+                    <a href="javascript:void(0)">
+                        <span>中标单位信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>{{detailText}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--列表-->
+        <div class="list"  >
+            <div class="list-table" style="display:{{lists._showDetail?'none':'block'}};" ng-hide="detailShow" >
+                <div class="list-top">
+                    <section class="flex1 {{unitLists._del?'active':''}}" ng-click="unitAll(unitLists)">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tick"></label>
+                    </section>
+                    <section class="flex4">中标单位名称</section>
+                    <section class="flex10">公司成立时间</section>
+                    <section class="flex8">公司类型</section>
+                    <section class="flex8">主要产品和服务</section>
+                    <section class="flex8">注册资金</section>
+                    <section class="flex8">地区</section>
+                </div>
+                <ul class="list-cenOul">
+                    <li class="list-style" ng-click="showDetail(lists)" ng-repeat="lists in unitLists" ng-dblclick = "jumpDetail(lists)">
+                        <section class="flex1">
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{lists._selectList?'tick':''}} {{unitLists._del?'tick':''}}" ></label>
+                        </section>
+                        <section class="flex4"  sho>{{lists.company_name}}</section>
+                        <section class="flex10" sho>{{lists.company_establish_time}}</section>
+                        <section class="flex8"  sho>{{lists.company_type}}</section>
+                        <section class="flex8"  sho>{{lists.main_service_product}}</section>
+                        <section class="flex8"  sho>{{lists.registered_capital}}</section>
+                        <section class="flex8"  sho>{{lists.address}}</section>
+                    </li>
+                </ul>
+            </div>
+            <!--列表详情-->
+            <div class="list-detail" ng-show="detailShow">
+                <ul class="list-detail-oul">
+                    <li>
+                        <p>中标单位名称</p>
+                        <span>{{detailList.company_name}}</span>
+                    </li>
+                    <li>
+                        <p>公司成立时间</p>
+                        <span>{{detailList.company_establish_time}}</span>
+                    </li>
+                    <li>
+                        <p>公司类型</p>
+                        <span>{{detailList.company_type}}</span>
+                    </li>
+                    <li>
+                        <p>主要产品和服务</p>
+                        <span>{{detailList.main_service_product}}</span>
+                    </li>
+                    <li>
+                        <p>注册资金</p>
+                        <span>{{detailList.registered_capital}}</span>
+                    </li>
+                    <li>
+                        <p>地区</p>
+                        <span>{{detailList.address}}</span>
+                    </li>
+                    <li>
+                        <p>经度</p>
+                        <span>{{detailList.latitude}}</span>
+                    </li>
+                    <li>
+                        <p>纬度</p>
+                        <span>{{detailList.longitude}}</span>
+                    </li>
+                    <li>
+                        <p>数据来源</p>
+                        <span>{{detailList.data_source}}</span>
+                    </li>
+                    <li>
+                        <p>公司邮箱</p>
+                        <span>{{detailList.company_email}}</span>
+                    </li>
+                    <li>
+                        <p>公司网站</p>
+                        <span>{{detailList.company_web}}</span>
+                    </li>
+                    <li>
+                        <p>企业电话</p>
+                        <span>{{detailList.company_tel}}</span>
+                    </li>
+                    <li>
+                        <p>联系人姓名</p>
+                        <span>{{detailList.contacts_username}}</span>
+                    </li>
+                    <li>
+                        <p>联系人职位</p>
+                        <span>{{detailList.contacts_position}}</span>
+                    </li>
+                    <li>
+                        <p>联系人电话</p>
+                        <span>{{detailList.contacts_tel}}</span>
+                    </li>
+                    <li>
+                        <p>联系人微信</p>
+                        <span>{{detailList.contacts_WeChat}}</span>
+                    </li>
+                    <li>
+                        <p>公司邮箱</p>
+                        <span>{{detailList.contacts_email}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>联系人性格</p>-->
+                        <!--<span>{{detailList.contacts_character}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>联系人脾气</p>
+                        <span>{{detailList.contacts_temper}}</span>
+                    </li>
+                    <li>
+                        <p>联系人兴趣</p>
+                        <span>{{detailList.contacts_interest}}</span>
+                    </li>
+                    <li>
+                        <p>认识的人</p>
+                        <span>{{detailList.know_people}}</span>
+                    </li>
+                    <li>
+                        <p>备注</p>
+                        <span>{{detailList.remark}}</span>
+                    </li>
+                    <li>
+                        <p>公司地址</p>
+                        <span>{{detailList.company_address}}</span>
+                    </li>
+                    <li>
+                        <p>是否已有合作项目</p>
+                        <span>{{detailList.whether_cooperation_company}}</span>
+                    </li>
+                </ul>
+                <section class="list-detail-sec">
+                    <p>资料完善</p>
+                    <dl class="dlWid">
+                        <dd class="ddWid"><span class="scaleDl">{{detailList.percent}}</span></dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </div>
+</section>
+<!--删除-->
+<div class="delete" ng-show="delShow">
+    <div class="del-head">
+            <span  ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+        <h3>温馨提示</h3>
+        <p>您确定要删除此数据吗？</p>
+    </div>
+    <div class="del-btn">
+        <button ng-click="cancel()">取消</button>
+        <button ng-click="delFn()">确定</button>
+    </div>
+</div>
+<div id="maskBg"  ng-show="delShow"></div>

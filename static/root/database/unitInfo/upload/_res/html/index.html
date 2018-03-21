@@ -1,0 +1,66 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>中标单位信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>上传附件</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--上传附件样式-->
+        <div class="list-upload">
+            <ul class="upload-input">
+                <li ng-repeat="list in files">
+                    <div class="up-al">
+                        <p>{{::list.name}}</p>
+                        <a href="javascript:void(0)" class="upload-close" ng-click="del($index)"><img src="/images/close2.png"></a>
+                    </div>
+                </li>
+            </ul>
+            <section class="list-upload-top">
+                <label class="upload-pic" for="uploadFile">
+                <em>
+                    <svg role="img" class="upload">
+                        <use xlink:href="#upload"></use>
+                    </svg>
+                </em>
+                 点击这片区域上传文件
+                <input type="file" id='uploadFile' style="display: none" onchange='angular.element(this).scope().fileNameChanged()' multiple=“multiple”>
+                <!--<p>直接拖拽您的文件到这里</p>-->
+                <!--<span>或者点击这片区域</span>-->
+                <!--<span>点击这片区域上传文件</span>-->
+                </label>
+            </section>
+            <button class="list-upload-btn" ng-click="updataSel()">上传</button>
+        </div>
+    </div>
+</section>

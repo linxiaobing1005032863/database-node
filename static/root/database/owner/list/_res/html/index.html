@@ -1,0 +1,260 @@
+
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li  ng-click="ownerJump()">
+                    <a href="javascript:void(0)">
+                        <span>业主信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>{{detailText}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--列表-->
+        <div class="list"  >
+            <div class="list-table" style="display:{{lists._showDetail?'none':'block'}};" ng-hide="detailShow" >
+                <div class="list-top">
+                    <section class="flex1 {{ownerLists._del?'active':''}}" ng-click="ownerAll(ownerLists)">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tick"></label>
+                    </section>
+                    <section class="flex4">客户姓名</section>
+                    <section class="flex10">性別</section>
+                    <section class="flex8">年龄</section>
+                    <section class="flex8">客户状态</section>
+                    <section class="flex8">重要级别</section>
+                    <section class="flex8">地区</section>
+                </div>
+                <ul class="list-cenOul">
+                    <li class="list-style" ng-click="ownerShowDetail(lists)" ng-repeat="lists in ownerLists" ng-dblclick = "ownerJumpDetail(lists)">
+                        <section class="flex1">
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{lists._selectList?'tick':''}} {{ownerLists._del?'tick':''}}" ></label>
+                        </section>
+                        <section class="flex4"  sho>{{lists.customer_name}}</section>
+                        <section class="flex10" sho>{{lists.customer_sex}}</section>
+                        <section class="flex8"  sho>{{lists.customer_age}}</section>
+                        <section class="flex8"  sho>{{lists.customer_status}}</section>
+                        <section class="flex8"  sho>{{lists.important_level}}</section>
+                        <section class="flex8"  sho>{{lists.region}}</section>
+                    </li>
+                </ul>
+            </div>
+            <!--列表详情-->
+            <div class="list-detail" ng-show="detailShow">
+                <ul class="list-detail-oul">
+                    <li>
+                        <p>客户姓名</p>
+                        <span>{{detailList.customer_name}}</span>
+                    </li>
+                    <li>
+                        <p>客户性别</p>
+                        <span>{{detailList.customer_sex}}</span>
+                    </li>
+                    <li>
+                        <p>客户年龄</p>
+                        <span>{{detailList.customer_age}}</span>
+                    </li>
+                    <li>
+                        <p>客户状态</p>
+                        <span>{{detailList.customer_status}}</span>
+                    </li>
+                    <li>
+                        <p>客户职位</p>
+                        <span>{{detailList.customer_position}}</span>
+                    </li>
+                    <li>
+                        <p>重要级别</p>
+                        <span>{{detailList.important_level}}</span>
+                    </li>
+                    <li>
+                        <p>地区</p>
+                        <span>{{detailList.region}}</span>
+                    </li>
+                    <li>
+                        <p>地址</p>
+                        <span>{{detailList.address}}</span>
+                    </li>
+                    <li>
+                        <p>数据来源</p>
+                        <span>{{detailList.data_source}}</span>
+                    </li>
+                    <li>
+                        <p>客户电话</p>
+                        <span>{{detailList.customer_phone}}</span>
+                    </li>
+                    <li>
+                        <p>客户微信</p>
+                        <span>{{detailList.customer_WeChat}}</span>
+                    </li>
+                    <!--<li>-->
+                        <!--<p>客户性格</p>-->
+                        <!--<span>{{detailList.customer_character}}</span>-->
+                    <!--</li>-->
+                    <li>
+                        <p>客户脾气</p>
+                        <span>{{detailList.customer_temper}}</span>
+                    </li>
+                    <li>
+                        <p>客户兴趣</p>
+                        <span>{{detailList.customer_interest}}</span>
+                    </li>
+                    <li>
+                        <p>共同认识的人</p>
+                        <span>{{detailList.know_people}}</span>
+                    </li>
+                    <li>
+                        <p>身份证明</p>
+                        <span>{{detailList.identity_prove}}</span>
+                    </li>
+                    <li class="liWidth">
+                        <p>证明图片</p>
+                        <ul>
+                            <li ng-repeat="list in files">
+                                <img ng-src="{{list.url}}" ng-if="list.type=='jpg'||list.type=='png'" style="width: 50px;">
+                                <a href="{{list.url}}" title="{{list.name}}" ng-if="list.type!='jpg'&&list.type!='png'" style="width: 50px;">{{::list.name}}</a>
+                                <!--<a href="{{list}}" >{{ list}}</a>-->
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <!--表格表头-->
+                <div class="centerTop" style="margin: 30px 0 0 0;width: 150px">
+                    <ul>
+                        <li class="firstSp"><span></span></li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <span>选址(谈楼)信息</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-detail" ng-show="detailShow">
+                        <ul class="list-detail-oul">
+                            <li>
+                                <p>建筑类型</p>
+                                <span>{{detailList.architecture_type}}</span>
+                            </li>
+                            <li>
+                                <p>建筑大小</p>
+                                <span>{{detailList.space_size}}</span>
+                            </li>
+                            <li>
+                                <p>供电情况</p>
+                                <span>{{detailList.power_supply_situation}}</span>
+                            </li>
+                            <li>
+                                <p>供电价格</p>
+                                <span>{{detailList.power_supply_price}}</span>
+                            </li>
+                            <li>
+                                <p>空调排水</p>
+                                <span>{{detailList.air_conditioning_drainage}}</span>
+                            </li>
+                            <li>
+                                <p>接地</p>
+                                <span>{{detailList.ground}}</span>
+                            </li>
+                            <li>
+                                <p>传输路由</p>
+                                <span>{{detailList.transmission_routing}}</span>
+                            </li>
+                            <li>
+                                <p>载重</p>
+                                <span>{{detailList.bearing}}</span>
+                            </li>
+                            <li>
+                                <p>手机网络信号情况</p>
+                                <span>{{detailList.phone_network_signal}}</span>
+                            </li>
+                            <li>
+                                <p>辐射情况</p>
+                                <span>{{detailList.radiation_condition}}</span>
+                            </li>
+                            <li>
+                                <p>对应的站点地址</p>
+                                <span>{{detailList.site_address}}</span>
+                            </li>
+                            <li>
+                                <p>对应的站点经度</p>
+                                <span>{{detailList.longitude}}</span>
+                            </li>
+                            <li>
+                                <p>对应的站点纬度</p>
+                                <span>{{detailList.latitude}}</span>
+                            </li>
+                            <li>
+                                <p>对应的现网状态</p>
+                                <span>{{detailList.current_network_state}}</span>
+                            </li>
+                            <li>
+                                <p>对应的站点状态</p>
+                                <span>{{detailList.site_state}}</span>
+                            </li>
+                            <li>
+                                <p>对应的归属运营商</p>
+                                <span>{{detailList.operator}}</span>
+                            </li>
+                            <li>
+                                <p>对应的站点类型</p>
+                                <span>{{detailList.site_type}}</span>
+                            </li>
+                         </ul>
+                </div>
+                <section class="list-detail-sec">
+                    <p>资料完善</p>
+                    <dl class="dlWid">
+                        <dd class="ddWid"><span class="scaleDl">75%</span></dd>
+                    </dl>
+                </section>
+            </div>
+        </div>
+        <div class="footer">
+            <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+        </div>
+    </div>
+
+</section>
+<!--删除-->
+<div class="delete" ng-show="delShow">
+    <div class="del-head">
+            <span  ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+        <h3>温馨提示</h3>
+        <p>您确定要删除此数据吗？</p>
+    </div>
+    <div class="del-btn">
+        <button ng-click="cancel()">取消</button>
+        <button ng-click="delFn()">确定</button>
+    </div>
+</div>
+<div id="maskBg"  ng-show="delShow"></div>

@@ -1,0 +1,7 @@
+  {
+    "default":"dev",
+    "dev": {
+      "rurl": "https://wl.bjike.com",
+      "vurl": "https://customersmanage.issp.bjike.com/js/nav.json"
+    }
+  }

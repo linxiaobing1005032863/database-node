@@ -1,0 +1,84 @@
+
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>我的文档</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>{{detailText}}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--查看附件样式-->
+        <div class="list-view">
+            <div class="list-view-table" >
+                <div class="list-view-top">
+                    <section class="flex1">
+                        <input type="checkbox" checked="checked" class="checked-none" data-style="checked" style="visibility: hidden">
+                        <label class="tick" style="visibility: hidden"></label>
+                    </section>
+                    <section>文档名称</section>
+                    <section>大小</section>
+                </div>
+                <ul class="list-view-cenOul">
+                    <li class="list-view-style" ng-repeat="view in weLists"  ng-click="weShowView(view)">
+                        <section>
+                            <input type="checkbox"  class="checked-none" data-style="checked">
+                            <label class="tiv {{view._selectList?'tick':''}}"></label>
+                        </section>
+                        <section>{{view.fileName}}</section>
+                        <section>{{view.size}}</section>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <pagination count="custom.itemsCount" take="custom.take" activate="custom.activatePage"></pagination>
+    </div>
+</section>
+
+<!--删除-->
+<div class="delete" ng-show="delShow">
+    <div class="del-head">
+            <span  ng-click="cancel()">
+                <img src="/images/del.png">
+            </span>
+        <h3>温馨提示</h3>
+        <p>您确定要删除此数据吗？</p>
+    </div>
+    <div class="del-btn">
+        <button ng-click="cancel()">取消</button>
+        <button ng-click="delFn()">确定</button>
+    </div>
+</div>
+<div id="maskBg"  ng-show="delShow"></div>

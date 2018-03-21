@@ -1,0 +1,169 @@
+<section class="oneSec">
+    <!--表格内容-->
+    <div class="contentCenter">
+        <!--表格表头-->
+        <div class="centerTop">
+            <ul>
+                <li class="firstSp"><span></span></li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>知己知彼</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>资料库</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)">
+                        <span>中标单位信息管理</span>
+                        <svg role="img" class="down">
+                            <use xlink:href="#down"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="lastSp">
+                    <a href="javascript:void(0)">
+                        <span>编辑</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--添加样式-->
+        <div class="list-center">
+            <div class="list-center-kind">
+                <ul class="list-center-oul">
+                    <li class="required">
+                        <label>中标单位名称</label>
+                        <input type="text" ng-model="edit.company_name">
+                    </li>
+                    <li>
+                        <label>公司成立时间</label>
+                        <input type="text" ng-model="edit.company_establish_time" onClick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" class="time">
+
+                    </li>
+                    <li class="required">
+                        <label >公司类型</label>
+                        <input type="text" ng-model="edit.company_type">
+                    </li>
+                    <li class="required">
+                        <label>主要产品和服务</label>
+                        <input type="text" ng-model="edit.main_service_product">
+                    </li>
+                    <li >
+                        <label>注册资金</label>
+                        <input type="text" ng-model="edit.registered_capital">
+                    </li>
+                    <li class="required">
+                        <label>地区</label>
+                        <a href="javascript:void(0)" class="pick-area pick-area6 SVGUROKDQT1517380985000" name="请选择省/请选择市/请选择区" style="width: 340px;">
+                        </a>
+                    </li>
+                    <li class="required">
+                        <label>公司地址</label>
+                        <input type="text" ng-model="edit.company_address">
+                    </li>
+                    <li class="required">
+                        <label>经度</label>
+                        <input type="text" ng-model="edit.latitude">
+                    </li>
+                    <li class="required">
+                        <label>纬度</label>
+                        <input type="text" ng-model="edit.longitude">
+                    </li>
+                    <li class="required">
+                        <label>数据来源</label>
+                        <input type="text" ng-model="edit.data_source">
+                    </li>
+                    <li>
+                        <label>公司邮箱</label>
+                        <input type="text" ng-model="edit.company_email">
+                    </li>
+                    <li>
+                        <label>公司网站</label>
+                        <input type="text" ng-model="edit.company_web">
+                    </li>
+                    <li>
+                        <label>企业电话</label>
+                        <input type="text" ng-model="edit.company_tel">
+                    </li>
+                    <li class="required">
+                        <label>联系人姓名</label>
+                        <input type="text" ng-model="edit.contacts_username">
+                    </li>
+                    <li class="required">
+                        <label>联系人性别</label>
+                        <select  ng-model="edit.contacts_sex">
+                            <option value="" disabled></option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </li>
+                    <li >
+                        <label>联系人职位</label>
+                        <input type="text" ng-model="edit.contacts_position">
+                    </li>
+                    <li class="required">
+                        <label>联系人电话</label>
+                        <input type="text" ng-model="edit.contacts_tel">
+                    </li>
+                    <li>
+                        <label>联系人微信</label>
+                        <input type="text" ng-model="edit.contacts_WeChat">
+                    </li>
+                    <li>
+                        <label>联系人邮箱</label>
+                        <input type="text" ng-model="edit.contacts_email">
+                    </li>
+                    <!--<li class="required">-->
+                    <!--<label>联系人性格</label>-->
+                    <!--<input type="text" ng-model="edit.contacts_character">-->
+                    <!--</li>-->
+                    <li>
+                        <label>联系人脾气</label>
+                        <input type="text" ng-model="edit.contacts_temper">
+                    </li>
+                    <li >
+                        <label>联系人兴趣</label>
+                        <input type="text" ng-model="edit.contacts_interest">
+                    </li>
+                    <li >
+                        <label>认识的人</label>
+                        <input type="text" ng-model="edit.know_people">
+                    </li>
+                    <li>
+                        <label>备注</label>
+                        <input type="text" ng-model="edit.remark">
+                    </li>
+
+                    <li class="required no_active">
+                        <label>是否已有合作项目</label>
+                        <select  ng-model="edit.whether_cooperation_company">
+                            <option value="" disabled></option>
+                            <option value="是">是</option>
+                            <option value="否">否</option>
+                        </select>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="list-center-button">
+                <button ui-sref="root.database.unitInfo.list[12]">取消</button>
+                <button ng-click="editFun()" ui-sref="root.database.unitInfo.list[12]">确定</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    !function(){
+        laydate.skin('dahong');//切换皮肤，请查看skins下面皮肤库
+    }();
+
+</script>
